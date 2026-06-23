@@ -49,13 +49,13 @@
         let button = document.getElementById('color-btn');
 
         let color = ["red"];
-        // let index = 0;
+        let indexx = 0;
 
         button.addEventListener('click', function() {
             
-            button.style.backgroundColor = color;
+            button.style.backgroundColor = color[indexx];
             button.style.color = 'white';
-            // index = 0;
+            indexx = 0;
 
         });
 
