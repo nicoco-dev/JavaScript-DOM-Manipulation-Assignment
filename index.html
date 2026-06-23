@@ -4,12 +4,98 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assignment DOM Manipulation</title>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
+
+    <!-- Question 1
+        Goal: Select an existing HTML element and change its text content.
+
+        HTML: <p id="text-para">Original Text</p> -->
   
     <p id="text-para">Original Text</p>
 
     <button type="button" onclick="document.getElementById('text-para').innerHTML = 'Text has been changed'">Click me</button>
-    
+
+    <!-- Question 2
+        Goal: Change the background color of an element when a user clicks a button.
+
+        HTML: <button id="color-btn">Change Color</button> -->
+
+    <button type="button" id="color-btn">Change Color</button>
+
+    <button id="mybtn">Change Body and text Background</button>
+
+
+    <!-- Question 3
+        Goal: Add a new item to a list programmatically.
+
+        HTML: <ul id="my-list"></ul> -->
+
+        
+    <ul id="my-list"></ul>
+
+
+    <!-- Question 4
+   Goal: Hide and show an element by switching a CSS class.
+   HTML: <p id="secret-text" class="visible">This is a secret!</p> <button id="toggle-btn">Toggle</button> -->
+
+   <p id="secret-text">This is a secret!</p>
+   <button id="toggle-btn">Toggle</button>
+
+    <script>
+        // 2
+
+        let button = document.getElementById('color-btn');
+
+        let color = ["red"];
+        // let index = 0;
+
+        button.addEventListener('click', function() {
+            
+            button.style.backgroundColor = color;
+            button.style.color = 'white';
+            // index = 0;
+
+        });
+
+        // click change background color and body and text
+
+        let mybtn = document.getElementById('mybtn');
+
+        let colors = ["red", "blue", "yellow", "orange"];
+        let bgcolor = ["black", "white", "green", "pink"];
+
+        let index = 0;
+
+        mybtn.addEventListener('click', function() {
+            document.body.style.backgroundColor = bgcolor[index];
+            document.body.style.color = colors[index];
+            index++;
+            if (index >= colors.length) {
+                index = 0;
+            }
+        });
+
+
+        // 3
+        let mylist = document.getElementById('my-list');
+        let newItem = document.createElement('li');
+        newItem.textContent = 'New Item';
+        mylist.appendChild(newItem);
+
+        let anotherItem = document.createElement('li');
+        anotherItem.textContent = 'Another Item';
+        mylist.appendChild(anotherItem);
+
+        // 4
+        let togglebtn = document.getElementById('toggle-btn');
+        let secrettext = document.getElementById('secret-text');
+
+        togglebtn.addEventListener('click', function() {
+            secrettext.classList.toggle('hidden');
+        });
+    </script>
+    <script src="index.js"></script>
 </body>
 </html>
